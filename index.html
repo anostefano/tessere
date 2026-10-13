@@ -108,12 +108,12 @@ button.card:active{transform:scale(.965)}
 .card-name{font-size:15px;line-height:1.2;font-weight:700;letter-spacing:-.012em;max-width:82%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
 .card.has-logo .card-name{-webkit-line-clamp:1;max-width:100%}
 .card.has-logo .card-mono{display:none}
-.card-logo{display:flex;align-items:center;justify-content:center;flex:none;height:36px;height:clamp(30px,21cqw,58px);aspect-ratio:1;padding:5px;padding:clamp(4px,2.6cqw,9px);border-radius:10px;border-radius:clamp(8px,5cqw,14px);background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.14)}
-.card-logo.is-wide{aspect-ratio:2.6}
+.card-logo{display:flex;align-items:center;justify-content:center;flex:none;align-self:flex-start;height:56px;height:34cqw;aspect-ratio:1;padding:4px;padding:2.2cqw;border-radius:12px;border-radius:5.5cqw;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.card-logo.is-wide{height:auto;width:130px;width:80cqw;aspect-ratio:2.6}
 .card-logo img{display:block;width:100%;height:100%;object-fit:contain}
 .card-logo.plate-dark{background:#17191E}
 .card-logo.plate-none{background:transparent;box-shadow:none;padding:0;filter:drop-shadow(0 1px 2px rgba(0,0,0,.18))}
-.card-num{font-size:13px;font-weight:600;letter-spacing:.06em;font-variant-numeric:tabular-nums;opacity:.88}
+.card-num{display:none;font-size:13px;font-weight:600;letter-spacing:.06em;font-variant-numeric:tabular-nums;opacity:.88}
 .card-mono{position:absolute;right:-.04em;bottom:-.26em;z-index:-1;font-size:104px;font-size:62cqw;line-height:1;font-weight:800;letter-spacing:-.06em;color:var(--card-mono,rgba(255,255,255,.17));pointer-events:none}
 .card--lg{padding:18px 20px;border-radius:24px}
 .card--lg .card-name{font-size:22px;letter-spacing:-.02em}
@@ -842,8 +842,7 @@ function cardHTML(card, tag, extra, logoSrc) {
   }
   return '<' + tag + ' class="card' + (hasLogo ? ' has-logo' : '') + (extra || '') + '" style="' + cardStyle(p) + '"' +
     (tag === 'button' ? ' type="button" data-id="' + esc(card.id) + '" aria-label="' + esc(card.name) + '"' : '') + '>' +
-    '<span class="card-top">' + logo + '<span class="card-name">' + esc(card.name) + '</span></span>' +
-    '<span class="card-num">' + esc(lastChars(card)) + '</span>' +
+    logo + '<span class="card-name">' + esc(card.name) + '</span>' +
     '<span class="card-mono" aria-hidden="true">' + esc(monogram(card.name)) + '</span>' +
     '</' + tag + '>';
 }
@@ -1732,7 +1731,7 @@ function buildCropper(orig, opts) {
     zoomEl.value = String(Math.round(1000 * Math.log(s / minS) / Math.log(maxS / minS)));
   }
   function fit() {
-    var b = box(), sc = Math.min(frame.w / b.w, frame.h / b.h) * 0.92;
+    var b = box(), sc = Math.min(frame.w / b.w, frame.h / b.h) * 0.97;
     s = sc; minS = sc * 0.2; maxS = sc * 12;
     tx = frame.x + frame.w / 2 - (b.x + b.w / 2) * s;
     ty = frame.y + frame.h / 2 - (b.y + b.h / 2) * s;
@@ -1954,7 +1953,7 @@ function openSettings() {
     '<button class="row" type="button" data-action="import"><span class="row-ico">' + icon('upload') + '</span><span><span class="row-title">Importa backup</span><span class="row-sub">Recupera le tessere da un file esportato</span></span></button>' +
     '<p class="sheet-foot">Le tessere restano solo su questo iPhone: niente account, niente server, niente pubblicità. ' +
     'Esporta un backup ogni tanto e conservalo in iCloud Drive, così le recuperi se cambi telefono.<br><br>' +
-    'Tessere 1.1 · ' + n + ' ' + plural(n, 'tessera salvata', 'tessere salvate') + '</p>',
+    'Tessere 1.2 · ' + n + ' ' + plural(n, 'tessera salvata', 'tessere salvate') + '</p>',
     'Impostazioni',
     function (action) {
       if (action === 'export') exportBackup();
