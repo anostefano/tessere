@@ -50,17 +50,33 @@ iOS tiene separati i dati delle due: le tessere aggiunte in Safari non compaiono
   Lo schermo resta acceso finché la tessera è aperta, se la versione di iOS lo consente.
 - **Recenti / A–Z**: le tessere usate più spesso restano in cima.
 
+### Loghi
+
+- **Dove trovarli:** tieni i file dei loghi (PNG, JPG o SVG) in una cartella dell'app File, per esempio *iCloud Drive › Loghi tessere*. Così non finiscono nell'app Foto.
+  - Da Safari: tieni premuto sull'immagine, poi *Condividi* › *Salva in File*.
+  - Da uno screenshot: tocca la miniatura, poi *Fine* › *Salva in File*.
+- **Per una tessera:** apri *Modifica* › *Aggiungi logo* › *Scegli file*.
+- **Per tutte quelle senza logo:** vai in ⚙ › *Aggiungi loghi*. L'app te le propone una dopo l'altra.
+- **Ritaglio:** trascina per spostare, pizzica per ingrandire.
+  - *Forma*: *Simbolo* per i loghi quadrati, *Scritta* per quelli orizzontali.
+  - *Piastrina*: in *Auto* un logo chiaro non finisce mai su uno sfondo chiaro.
+  - Se lo sfondo dell'immagine è a tinta unita, l'app lo toglie da sola. Puoi disattivarlo.
+- **Colore della tessera:** viene ricavato dal logo. In *Modifica* trovi i colori del logo come primi pallini.
+
+Dopo aver aggiunto il logo puoi cancellare il file dalla cartella: l'app ne tiene una copia propria.
+
 ## 4. Backup: importante
 
 - Se elimini l'icona dalla schermata Home, iOS cancella anche le tessere salvate.
 - Non cambiare l'indirizzo dell'app, per esempio rinominando il repository: le tessere sono legate all'indirizzo.
 
 Esporta un backup ogni tanto da **⚙ → Esporta backup** e salvalo in iCloud Drive.
+Il file contiene anche i loghi.
 Per recuperare le tessere usa **Importa backup**.
 
 ## 5. Aggiornare l'app
 
-1. Modifica i file e ricaricali su GitHub.
+1. Ricarica su GitHub i file modificati: *Add file › Upload files*, con gli stessi nomi, così vengono sostituiti.
 2. In `sw.js` aumenta il numero in `VERSION` (es. `tessere-v2`).
    Altrimenti l'iPhone continua a usare la copia salvata.
 3. Apri l'app, chiudila e riaprila: alla seconda apertura vedi la nuova versione.

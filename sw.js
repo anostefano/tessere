@@ -2,7 +2,7 @@
    Strategia: risponde subito dalla cache e aggiorna in background,
    così l'app si apre all'istante anche in cassa con poca rete.
    Quando modifichi i file, aumenta il numero di VERSION. */
-var VERSION = 'tessere-v1';
+var VERSION = 'tessere-v2';
 var ASSETS = [
   './',
   'index.html',
